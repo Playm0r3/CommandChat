@@ -1,0 +1,10 @@
+
+# les dossiers
+
+.vs/
+Server/bin/
+Server/obj/
+
+# les fichier spéciaux
+
+Chat.sln
