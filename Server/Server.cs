@@ -21,8 +21,10 @@ namespace wm
 
         public Server()
         {
-            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 5000);
+            IPAddress ipAddress = Dns.GetHostEntry("localhost").AddressList[1];
+            Console.WriteLine("[System] Server is running on " + ipAddress.ToString() + ":5000");
+            _serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, 5000);
             _serverSocket.Bind(ipEndPoint);
 
             _acceptThread = new Thread(HandleAcceptClient);
@@ -81,6 +83,7 @@ namespace wm
             int receivedBytes = client.clientSocket.Receive(buffer);
             string message = Encoding.UTF8.GetString(buffer, 0, receivedBytes);
             Console.WriteLine($"{client.name}: {message}");
+            BroadCastMessage($"{client.name}: {message}");
         }
 
         public void SendMessage(Client client, string message)
@@ -108,11 +111,16 @@ namespace wm
 
         private void CloseClient(Client client)
         {
-            client.clientSocket.Shutdown(SocketShutdown.Both);
-            client.clientSocket.Close();
-            _clients.Remove(client);
+            try
+            {
+                client.clientSocket.Shutdown(SocketShutdown.Both);
+                client.clientSocket.Close();
+                _clients.Remove(client);
+            } catch(SocketException e)
+            {
+                BroadCastMessage($"[Server] {client.name} left the chat !");
+            }
 
-            BroadCastMessage($"[Server] {client.name} left the chat !");
         }
 
         private void CloseServer()
@@ -139,13 +147,15 @@ namespace wm
         {
             while(_isRunning)
             {
-                foreach(Client client in _clients)
+                for(int i = 0; i < _clients.Count; i++)
                 {
                     try
                     {
-                        ReceiveMessage(client);
-                    } catch(SocketException) {
-                        CloseClient(client);
+                        ReceiveMessage(_clients[i]);
+                    }
+                    catch (SocketException)
+                    {
+                        CloseClient(_clients[i]);
                     }
                 }
             }

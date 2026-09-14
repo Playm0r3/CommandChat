@@ -8,7 +8,7 @@ namespace Server
 {
     public class Program
     {
-        public static void main(string[] args)
+        public static void Main(string[] args)
         {
             wm.Server server = new wm.Server();
             server.Start(10);
