@@ -2,8 +2,15 @@
 # les dossiers
 
 .vs/
+
 Server/bin/
 Server/obj/
+
+Protocol/bin/
+Protocol/obj/
+
+Client/bin/
+Client/obj/
 
 # les fichier spéciaux
 
