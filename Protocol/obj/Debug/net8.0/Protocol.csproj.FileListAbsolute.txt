@@ -1,0 +1,12 @@
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\bin\Debug\net8.0\Protocol.deps.json
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\bin\Debug\net8.0\Protocol.dll
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\bin\Debug\net8.0\Protocol.pdb
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.AssemblyInfoInputs.cache
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.AssemblyInfo.cs
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.csproj.CoreCompileInputs.cache
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.sourcelink.json
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.dll
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\refint\Protocol.dll
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\Protocol.pdb
+C:\Users\Warren\Developpement\CS\CommandChat\Protocol\obj\Debug\net8.0\ref\Protocol.dll
