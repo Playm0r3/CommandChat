@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,5 +31,18 @@ namespace wm
             Buffer.BlockCopy(packet, 4, payload, 0, messageLength);
             return Encoding.UTF8.GetString(payload);
         }
+    
+        public void SendMessage(Socket socket, string message)
+        {
+            byte[] packet = Encode(message);
+            int bytesSent = 0;
+
+            while(bytesSent < packet.Length)
+                bytesSent += socket.Send(packet, bytesSent, packet.Length - bytesSent, SocketFlags.None);
+        }
+
+        // Faire une fonction pour recevoir un certain nombre de bytes 
+
+        // Faire une fonction pour recevoir un message complet
     }
 }
